@@ -50,11 +50,11 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
 function signup({ email, password, nickname, req }) {
   const user = new User({ email, password, nickname });
   if (!email || !password) { throw new Error('You must provide an email and password.'); }
-  if (!nickname) { throw new Error('You must provide an email and password.'); }
+  if (!nickname) { throw new Error('You must provide a nickname'); }
 
   return User.find({ email, nickname })
     .then(existingUser => {
-      if (existingUser) { throw new Error('Email or Nickname in use'); }
+      if (existingUser) { throw new Error('Email or nickname in use'); }
       return user.save();
     })
     .then(user => {
