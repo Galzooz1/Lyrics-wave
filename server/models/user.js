@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt-nodejs');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const passportLocalMongoose = require('passport-local-mongoose');
 
 // Every user has an email and password.  The password is not stored as
 // plain text - see the authentication helpers below.
@@ -8,6 +9,10 @@ const UserSchema = new Schema({
   email: String,
   password: String,
   nickname: String
+});
+
+UserSchema.plugin(passportLocalMongoose, {
+  usernameField: 'email'
 });
 
 // The user's password is never saved in plain text.  Prior to saving the
@@ -38,5 +43,7 @@ UserSchema.methods.comparePassword = function comparePassword(candidatePassword,
     cb(err, isMatch);
   });
 };
+
+
 
 mongoose.model('user', UserSchema);
