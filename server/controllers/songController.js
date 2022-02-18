@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { SongSchema } = require('../models/song');
-const { getUser } = require('./userController');
+const { UserSchema } = require('../models/user');
+const User = mongoose.model('user', UserSchema);
 const Song = mongoose.model('song', SongSchema);
 
 exports.getSongs = async() => {
@@ -26,30 +27,39 @@ exports.addSong = async(args, req) => {
         if(!req.user) {
             throw new Error('You must login to add song');
         }
-        const song = new Song(args);
-        song.user = req.user;
-        const newSong = await song.save();
-        return newSong;
+        return await User.findById(req.user)
+                .then(user => {
+                    const song = new Song(args)
+                    song.likes = 0;
+                    song.user = user;
+                    user.songs.push(song);
+                    user.save();
+                    const newSong = song.save();
+                    return newSong;
+                })
     } catch (err) {
         console.log(err)
     }
 }
 
-exports.deleteSong = async(id, userid, req) => {
+exports.deleteSong = async(args, req) => {
     try {
+        const id = args.id;
         if(id) {
-            console.log(userid)
-            console.log(id)
-            if(req.user._id !== userid){
-                throw new Error('You must login to delete song');
+            const currentSong = await this.getSong(id);
+            if(!currentSong){
+                return new Error('Song not found');
             }
             if(!req.user) {
-                throw new Error('You must login to delete song');
+                return new Error('You must login to delete song');
             }
-            const song = await Song.findByIdAndRemove(id);
+            if(String(req.user._id) !== String(currentSong.user._id)){
+                return new Error('You must login to delete song');
+            }
+            const song = await Song.deleteOne({ _id: id });
             return song;
         }
     } catch (err) {
-        
+        console.log(err);
     }
 }

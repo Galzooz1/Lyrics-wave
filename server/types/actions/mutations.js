@@ -61,14 +61,9 @@ const RootMutationType = new GraphQLObjectType({
             type: SongType,
             args: { 
                 id: { type: new GraphQLNonNull(GraphQLID) },
-                user: { type: GraphQLID }
             },
-            resolve(parentValue, { id, user }, req) {
-                // we need to verify that who is deleting the song is the same user created it.
-                console.log(user);
-                console.log(req.user._id);
-                // console.log(user)
-                // return await deleteSong( id, user, req);
+            async resolve(parentValue, args, req) {
+                return await deleteSong(args, req);
             }
         }
     }

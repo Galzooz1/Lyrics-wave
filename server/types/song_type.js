@@ -19,14 +19,14 @@ const SongType = new GraphQLObjectType({
     title: { type: GraphQLString },
     likes: { type: GraphQLInt },
     user: { 
-    type: require('./user_type'),
-     async resolve(parentValue) {
-         return await Song.findById(parentValue.id)
-            .populate('user')
-            .then(song => {
-                return song.user
-            });
-     }
+      type: require('./user_type'),
+      async resolve(parentValue) {
+          return await Song.findById(parentValue.id)
+              .populate('user')
+              .then(song => {
+                  return song.user
+              });
+      }
     }
     // lyrics: {
     //   type: new GraphQLList(LyricType),

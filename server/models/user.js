@@ -49,10 +49,9 @@ UserSchema.methods.comparePassword = function comparePassword(candidatePassword,
 };
 
 UserSchema.statics.findSongs = async function(id) {
-  console.log(11111, id)
   return await this.findById(id)
           .populate('songs')
-          .then(user => { console.log(22222, user.songs); user.songs})
+          .then(user => user.songs)
 }
 
 
