@@ -12,6 +12,8 @@ const {
     getUser 
 } = require('../../controllers/userController');
 const AuthService = require('../../services/auth');
+const SongType = require('../song_type');
+const { addSong, deleteSong } = require('../../controllers/songController');
 
 
 const RootMutationType = new GraphQLObjectType({
@@ -46,6 +48,29 @@ const RootMutationType = new GraphQLObjectType({
                 return user;
             }
         },
+        addSong: {
+            type: SongType,
+            args: {
+                title: { type: GraphQLString }
+            },
+            async resolve(parentValue, args, req) {
+                return await addSong(args, req);
+            }
+        },
+        deleteSong: {
+            type: SongType,
+            args: { 
+                id: { type: new GraphQLNonNull(GraphQLID) },
+                user: { type: GraphQLID }
+            },
+            resolve(parentValue, { id, user }, req) {
+                // we need to verify that who is deleting the song is the same user created it.
+                console.log(user);
+                console.log(req.user._id);
+                // console.log(user)
+                // return await deleteSong( id, user, req);
+            }
+        }
     }
 })
 

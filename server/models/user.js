@@ -8,7 +8,11 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const UserSchema = new Schema({
   email: String,
   password: String,
-  nickname: String
+  nickname: String,
+  songs: [{
+    type: Schema.Types.ObjectId,
+    ref: 'song'
+  }]
 });
 
 UserSchema.plugin(passportLocalMongoose, {
@@ -43,6 +47,13 @@ UserSchema.methods.comparePassword = function comparePassword(candidatePassword,
     cb(err, isMatch);
   });
 };
+
+UserSchema.statics.findSongs = async function(id) {
+  console.log(11111, id)
+  return await this.findById(id)
+          .populate('songs')
+          .then(user => { console.log(22222, user.songs); user.songs})
+}
 
 
 

@@ -5,13 +5,9 @@ const SongSchema = new Schema({
     title: { type: String },
     likes: { type: Number },
     user: {
-        id: String,
-        nickname: String
-    }
-    // user: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'user',
-    // },
+        type: Schema.Types.ObjectId,
+        ref: 'user',
+    },
     // lyrics: [{
     //     type: Schema.Types.ObjectId,
     //     ref: 'lyric'
@@ -23,5 +19,12 @@ const SongSchema = new Schema({
 
 //     return Song
 // }
+
+// SongSchema.statics.findUser = async function(id) {
+//     return await this.findById(id)
+//       .populate('user')
+//       .then(song => song.user);
+//   }
+  
 
 mongoose.model('song', SongSchema);

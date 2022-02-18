@@ -17,7 +17,7 @@ const { getSongs, getSong } = require('../../controllers/songController');
 
 const RootQueryType = new GraphQLObjectType({
     name:"RootQueryType",
-    fields: {
+    fields: () => ({
         users: {
             type: new GraphQLList(UserType),
             async resolve(parentValue, args) {
@@ -44,7 +44,7 @@ const RootQueryType = new GraphQLObjectType({
                 return await getSong(id);
             }
         }
-    }
+    })
 })
 
 module.exports = RootQueryType;
