@@ -7,13 +7,16 @@ const {
     GraphQLNonNull 
 } = graphql;
 const UserType = require('../user_type');
-const { 
-    getUsers, 
-    getUser 
-} = require('../../controllers/userController');
 const AuthService = require('../../services/auth');
 const SongType = require('../song_type');
-const { addSong, deleteSong } = require('../../controllers/songController');
+const { 
+    addSong, 
+    deleteSong, 
+    likeSong, 
+    dislikeSong 
+} = require('../../controllers/songController');
+const LyricType = require('../lyric_type');
+const { addLyric } = require('../../controllers/lyricController');
 
 
 const RootMutationType = new GraphQLObjectType({
@@ -65,7 +68,31 @@ const RootMutationType = new GraphQLObjectType({
             async resolve(parentValue, args, req) {
                 return await deleteSong(args, req);
             }
-        }
+        },
+        likeSong: {
+            type: SongType,
+            args: { id: { type: new GraphQLNonNull(GraphQLID) } },
+            async resolve(parentValue, args, req) {
+                return await likeSong(args, req);
+            }
+        },
+        dislikeSong: {
+            type: SongType,
+            args: { id: { type: new GraphQLNonNull(GraphQLID) } },
+            async resolve(parentValue, args, req) {
+                return await dislikeSong(args, req);
+            }
+        },
+        addLyricToSong: {
+            type: LyricType,
+            args: {
+                content: { type: GraphQLString },
+                songId: { type: GraphQLID }
+            },
+            async resolve(parentValue, args, req) {
+                return await addLyric(args, req);
+            }
+        },
     }
 })
 

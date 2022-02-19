@@ -12,7 +12,27 @@ const UserSchema = new Schema({
   songs: [{
     type: Schema.Types.ObjectId,
     ref: 'song'
-  }]
+  }],
+  likedSongs: [{
+    type: Schema.Types.ObjectId,
+    ref: 'song'
+  }],
+  dislikedSongs: [{
+    type: Schema.Types.ObjectId,
+    ref: 'song'
+  }],
+  lyrics: [{
+    type: Schema.Types.ObjectId,
+    ref: 'lyric'
+  }],
+  likedLyrics: [{
+    type: Schema.Types.ObjectId,
+    ref: 'lyric'
+  }],
+  dislikedLyrics: [{
+    type: Schema.Types.ObjectId,
+    ref: 'lyric'
+  }],
 });
 
 UserSchema.plugin(passportLocalMongoose, {
@@ -54,6 +74,10 @@ UserSchema.statics.findSongs = async function(id) {
           .then(user => user.songs)
 }
 
-
+UserSchema.statics.findLyrics = async function(id) {
+  return await this.findById(id)
+          .populate('lyrics')
+          .then(user => user.lyrics)
+}
 
 mongoose.model('user', UserSchema);

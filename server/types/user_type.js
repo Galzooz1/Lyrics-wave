@@ -8,6 +8,7 @@ const {
 } = graphql;
 const { UserSchema } = require('../models/user');
 const SongType = require('./song_type');
+const LyricType = require('./lyric_type');
 const User = mongoose.model('user', UserSchema);
 
 const UserType = new GraphQLObjectType({
@@ -16,18 +17,52 @@ const UserType = new GraphQLObjectType({
     id: { type: GraphQLID },
     email: { type: GraphQLString },
     nickname: { type: GraphQLString },
+    // Songs
     songs: {
       type: new GraphQLList(SongType),
       resolve(parentValue) {
         return User.findSongs(parentValue.id);
-        // await User.findById(parentValue.id)
-        //       .populate('songs')
-        //       .then(user => {
-        //         console.log(1111,user)
-        //         return [...user.songs]
-        //       })
       }
-    }
+    },
+    likedSongs: {
+      type: new GraphQLList(SongType),
+      async resolve(parentValue) {
+        return await User.findById(parentValue.id)
+                .populate('likedSongs')
+                .then(user => { return user.likedSongs }) 
+      }
+    },
+    dislikedSongs: {
+      type: new GraphQLList(SongType),
+      async resolve(parentValue) {
+        return await User.findById(parentValue.id)
+                .populate('dislikedSongs')
+                .then(user => { return user.dislikedSongs });
+      }
+    },
+    // Lyrics
+    lyrics: {
+      type: new GraphQLList(LyricType),
+      resolve(parentValue) {
+        return User.findLyrics(parentValue.id);
+      }
+    },
+    likedLyrics: {
+      type: new GraphQLList(LyricType),
+      async resolve(parentValue) {
+        return await User.findById(parentValue.id)
+                .populate('likedLyrics')
+                .then(user => { return user.likedLyrics }) 
+      }
+    },
+    dislikedLyrics: {
+      type: new GraphQLList(LyricType),
+      async resolve(parentValue) {
+        return await User.findById(parentValue.id)
+                .populate('dislikedLyrics')
+                .then(user => { return user.dislikedLyrics });
+      }
+    },
   })
 });
 

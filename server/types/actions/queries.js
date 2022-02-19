@@ -13,6 +13,8 @@ const {
 } = require('../../controllers/userController');
 const SongType = require('../song_type');
 const { getSongs, getSong } = require('../../controllers/songController');
+const { getLyric, getLyrics } = require('../../controllers/lyricController');
+const LyricType = require('../lyric_type');
 
 
 const RootQueryType = new GraphQLObjectType({
@@ -43,7 +45,20 @@ const RootQueryType = new GraphQLObjectType({
             async resolve(parentValue, { id }) {
                 return await getSong(id);
             }
-        }
+        },
+        lyrics: {
+            type: new GraphQLList(LyricType),
+            async resolve(parentValue, args) {
+                return await getLyrics();
+            }
+        },
+        lyric: {
+            type: LyricType,
+            args: { id: { type: new GraphQLNonNull(GraphQLID) } },
+            async resolve(parentValue, { id }) {
+                return await getLyric(id);
+            }
+        },
     })
 })
 

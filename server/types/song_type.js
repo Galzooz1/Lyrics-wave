@@ -7,9 +7,8 @@ const {
     GraphQLList, 
     GraphQLInt 
 } = graphql;
-// const LyricType = require('./lyric_type');
 const { SongSchema } = require('../models/song');
-const UserType = require('./user_type');
+const LyricType = require('./lyric_type');
 const Song = mongoose.model('song', SongSchema);
 
 const SongType = new GraphQLObjectType({
@@ -18,6 +17,23 @@ const SongType = new GraphQLObjectType({
     id: { type: GraphQLID },
     title: { type: GraphQLString },
     likes: { type: GraphQLInt },
+    usersLike: { 
+      type: new GraphQLList(require('./user_type')) ,
+      async resolve(parentValue) {
+        return await Song.findById(parentValue.id)
+                .populate('usersLike')
+                .then(song => { return song.usersLike })
+      }
+    },
+    dislikes: { type: GraphQLInt },
+    usersDislike: { 
+      type: new GraphQLList(require('./user_type')) ,
+      async resolve(parentValue) {
+        return await Song.findById(parentValue.id)
+                .populate('usersDislike')
+                .then(song => { return song.usersDislike })
+      }
+    },
     user: { 
       type: require('./user_type'),
       async resolve(parentValue) {
@@ -27,13 +43,17 @@ const SongType = new GraphQLObjectType({
                   return song.user
               });
       }
+    },
+    lyrics: {
+      type: new GraphQLList(LyricType),
+      async resolve(parentValue) {
+        return await Song.findById(parentValue.id)
+          .populate('lyrics')
+          .then(song => {
+              return song.lyrics
+          });
+      }
     }
-    // lyrics: {
-    //   type: new GraphQLList(LyricType),
-    //   resolve(parentValue) {
-    //     return Song.findLyrics(parentValue.id);
-    //   }
-    // }
   })
 });
 
