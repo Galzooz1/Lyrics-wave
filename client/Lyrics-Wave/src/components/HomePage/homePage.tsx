@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Header from './header';
 import './homePage.scss';
 
 interface IHomePageProps {
@@ -7,7 +8,7 @@ interface IHomePageProps {
 const HomePage: React.FunctionComponent<IHomePageProps> = (props) => {
   return (
     <div className='home'>
-        <div>Work!</div>
+        <Header />
     </div>
   );
 };
