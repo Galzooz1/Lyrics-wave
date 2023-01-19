@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+.about-main {
+  color: #fff;
+  position: relative;
+  left: 300px;
+  top: 100px;
+  height: 400px;
+  width: 800px;
+  color: #25316D;
+}
+.about-main h1 {
+  font-size: 70px;
+}
+.about-main_text {
+  font-size: 30px;
+}/*# sourceMappingURL=About.css.map */

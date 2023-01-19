@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { Header } from './components/HomePage/Header';
+import { BestSongs } from './components/HomePage/BestSongs';
+import { About } from './components/HomePage/About';
+import { Login } from './components/Login/Login';
 
 function App() {
   const { register, handleSubmit } = useForm();
@@ -11,8 +14,10 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center">
-      <h1>hello</h1>
-          <Header />
+      <Header />
+      <Login />
+      <About />
+      <BestSongs />
         <div className="max-w-md w-full mx-auto">
           <div className="text-center font-medium text-xl">somothing</div>
           <div className="text-3xl font-bold text-gray-900 mt-2 text-center">another text</div>

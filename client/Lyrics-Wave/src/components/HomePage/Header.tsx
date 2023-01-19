@@ -6,9 +6,11 @@ export interface IHeaderProps {
 
 export function Header (props: IHeaderProps) {
   return (
+
     <div>
       <header className="header">
       <div className="header_left">
+        {/* צריכה להכנס פה תמונה של הלוגו. היא נמצאת בתיקייה של הוםפאייג */}
         <h1 className="header_left_context">Logo</h1>
         <a href="#" className="header_left_context link">
          Sign Up
