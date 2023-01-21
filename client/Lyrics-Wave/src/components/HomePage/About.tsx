@@ -1,5 +1,6 @@
 import * as React from 'react';
 import "./About.css"
+import logo from '../HomePage/logo.png'
 
 export interface IAboutProps {
 
@@ -13,6 +14,7 @@ export function About (props: IAboutProps) {
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Sit amet consectetur adipiscing elit duis tristique sollicitudin nibh sit.
             Purus ut faucibus pulvinar elementum integer enim neque volutpat ac.</p>
+        <img className='about-main_logo' src={logo} />
     </div>
   );
 }

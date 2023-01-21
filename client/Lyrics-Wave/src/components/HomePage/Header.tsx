@@ -1,21 +1,33 @@
 import * as React from 'react';
 import "./Header.css"
+import logoSmall from '../HomePage/logo-small.png'
 
 export interface IHeaderProps {
 }
 
 export function Header (props: IHeaderProps) {
+
+  const loginClick = () => {
+    document.querySelector(".login-container")?.classList.remove("login-container_hide")
+    document.querySelector(".login-container")?.classList.add("login-container_non-hide")
+  }
+  const signUpClick = () => {
+    console.log("click")
+    document.querySelector(".signUp-container")?.classList.remove("signUp-container_hide")
+    document.querySelector(".signUp-container")?.classList.add("signUp-container_non-hide")
+  }
+
+
   return (
 
     <div>
       <header className="header">
       <div className="header_left">
-        {/* צריכה להכנס פה תמונה של הלוגו. היא נמצאת בתיקייה של הוםפאייג */}
-        <h1 className="header_left_context">Logo</h1>
-        <a href="#" className="header_left_context link">
+        <img className='header_left_logo_small' src={logoSmall} />
+        <a onClick={signUpClick} href="#" className="header_left_context link">
          Sign Up
         </a>
-        <a href="#" className="header_left_context link">
+        <a onClick={loginClick} href="#" className="header_left_context link">
           Login
         </a>
       </div>

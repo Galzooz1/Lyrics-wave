@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-.login-container {
+.signUp-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,23 +12,15 @@
   width: 100%;
   height: 100%;
 }
-.login-container_header {
+.signUp-container_header {
   color: #fff;
 }
-.login-container_header_small {
+.signUp-container_header_small {
   color: #fff;
 }
-.login-container_hide {
+.signUp-container_hide {
   z-index: -1;
 }
-.login-container_non-hide {
+.signUp-container_non-hide {
   z-index: 1;
-}
-.login-container_unregistered {
-  display: flex;
-  justify-content: center;
-}
-.login-container_unregistered_link {
-  color: blue;
-  font-weight: 600;
-}/*# sourceMappingURL=Login.css.map */
+}/*# sourceMappingURL=SignUp.css.map */

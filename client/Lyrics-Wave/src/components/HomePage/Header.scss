@@ -5,6 +5,9 @@
   $color3: #FEF5AC;
 
 .header{
+    position: fixed;
+    top: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,6 +28,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      &_logo_small{
+        height: 60px;
+      }
       a{
         margin-right: 10px;
         &::after {
