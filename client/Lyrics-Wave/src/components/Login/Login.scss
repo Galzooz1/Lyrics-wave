@@ -1,11 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-
-$primary_color: #25316D;
-$color1: #3D84A8;
-$color2: #46CDCF;
-$color3: #FEF5AC;
-
+// makes the black background of the login form
 .login-container{
+    z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,23 +13,62 @@ $color3: #FEF5AC;
     width: 100%;
     height: 100%;
     &_header{
-        color: #fff;
-        &_small{
-            color: #fff;
-        }
+        font-weight: 600;
+        text-align: center;
+        color: var(--white);
+        font-size: 3em;
     }
-    &_hide{
-        z-index: -1;
-    }
-    &_non-hide{
-        z-index: 1;
-    }
-    &_unregistered{
-        display: flex;
-        justify-content: center;
-        &_link{
-            color: blue;
+}
+
+
+.login-main{
+    min-width: 25rem;
+    padding: 2rem;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    &_form{
+        &_label{
+            color: var(--black);
+            font-size: 1.2em;
             font-weight: 600;
+            &_input{
+                min-width: 100%;
+                border: solid 1px var(--black);
+            }
+            &_select{
+                min-width: 100%;
+                border: solid 1px var(--black);
+            }
+        }
+
+    }
+    &_bottom{
+        &_checkbox{
+            &_input{
+                margin-right: 0.3rem;
+                background-color: var(--black);
+            }
+            &_label{
+                color: var(--black);
+                font-size: 1em;
+                font-weight: 600;
+            }
+        }
+        &_submit{
+            min-height: 2rem;
+            min-width: 100%;
+            border-radius: 5px;
+            color: var(--white);
+            background-color: var(--primary_color);
+        }
+        &_unregistered{
+            text-align: center;
+            &_link{
+                color: blue;
+                font-weight: 600;
+                text-decoration: underline;
+            }
         }
     }
 }

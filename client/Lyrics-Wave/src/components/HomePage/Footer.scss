@@ -1,10 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-$primary_color: #25316D;
-$color1: #3D84A8;
-$color2: #46CDCF;
-$color3: #FEF5AC;
-
-
 .footer-main{
     position: fixed;
     bottom: 0;
@@ -12,5 +5,5 @@ $color3: #FEF5AC;
     display: flex;
     height: 60px;
     width: 100%;
-    background-color: $primary_color;
+    background-color: var(--primary_color);
 }

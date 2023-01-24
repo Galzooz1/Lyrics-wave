@@ -1,71 +1,59 @@
-  // variabels 
-  $primary_color: #25316D;
-  $color1: #3D84A8;
-  $color2: #46CDCF;
-  $color3: #FEF5AC;
-
 .header{
+    z-index: 1;
     position: fixed;
     top: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10rem;
+    padding: 0 1rem;
     margin: 0;
     height: 6rem;
-    background-color: $primary_color;
-    color: #fff;
+    background-color: var(--primary_color);
+    color: var(--white);
     a{
-      font-size: 17px;
+      font-size: 1.8rem;
       text-decoration: none;
-      color: #fff;
+      color: var(--white);
       font-weight: 500;
     }
     &_left{
       position: relative;
-      right: 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       &_logo_small{
-        height: 60px;
+        height: 4rem;
       }
       a{
-        margin-right: 10px;
+        margin-right: 1rem;
         &::after {
           content: '';
           display: block;
           width: 0;
           height: 2px;
-          background: $color3;
+          background: var(--color3);
           transition: width .3s ease-in;
         }
         &:hover::after {
           width: 100%;
         }
       }
-      h1{
-        font-size: 40px;
-        position: relative;
-        right: 20px;
-        bottom: 5px;
-      }
     }
    
     &_mid_context{
-      height: 40px;
+      height: 1.3rem;
       display: flex;
       align-items: center;
       position: relative;
-      right: 50px;
       a{
+        margin-right: 6rem;
         &::after {
           content: '';
           display: block;
           width: 0;
           height: 2px;
-          background: $color3;
+          background: var(--color3);
           transition: width .3s ease-in;
         }
         &:hover::after {
@@ -74,26 +62,36 @@
       }
     }
   
-
-
     &_right_context{
-      background-color: $color2;
+      background-color: var(--color2);
       position: relative;
       display: flex;
       align-items: center;
-      right: 50px;
-      padding: 10px;
-      height: 40px;
-      border-radius: 8px;
+      padding: 0.8rem;
+      height: 2.5rem;
+      border-radius: 10px;
       a{
         text-decoration: none;
-        color: $primary_color;
+        color: var(--black);
         font-weight: 600;
       }
       &:hover{
-        background-color: $color3;
+        background-color: var(--color3);
         transition: all 0.3s ease-out;
         transform: translateY(2px);
       }
     }
   }
+
+  @media (max-width: 1220px) {
+    .header{
+      a{
+        font-size: 1.2rem;
+      }
+      &_mid_context{
+        a{
+          margin-right: 3rem;
+        }
+      }
+    }
+}

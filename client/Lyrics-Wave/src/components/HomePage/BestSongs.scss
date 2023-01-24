@@ -1,45 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-$primary_color: #25316D;
-$color1: #3D84A8;
-$color2: #46CDCF;
-$color3: #FEF5AC;
-
 .best-songs-main{
     font-family: 'Montserrat', sans-serif;
-    position: relative;
-    bottom: 300px;
-    left: 1200px;
     display: block;
-    background-color: $primary_color;
-    height: 500px;
-    width: 400px;
-    color: #fff;
+    background-color: var(--primary_color);
+    height: 30rem;
+    width: 25rem;
+    color: var(--white);
     box-shadow: 5px 5px 20px #000000;
 
     &_headline{
-        margin: 20px;
+        margin: 1rem;
         text-align: center;
         font-weight: 600;
-        font-size: 25px;
+        font-size: 2em;
     }
 
     &_song{
-        padding: 10px;
-        border: solid 2px $color1;
-        margin: 5px;
+        padding: 1rem;
+        border: solid 1px var(--color1);
+        margin: 0.5rem;
         p{
-            margin: 8px 0 0;
+            margin: 0.8rem 0 0;
         }
         img{
             border-radius: 50%;
-            height: 40px;
-            width: 40px;
+            height: 2.5rem;
+            width: 2.5rem;
         }
         &_img-name{
             display: flex;
             align-items: center;
             p{
-                margin-left: 5px;
+                margin-left: 0.5rem;
             }
         }
     }

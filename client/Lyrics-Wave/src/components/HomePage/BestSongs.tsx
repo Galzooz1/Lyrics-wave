@@ -1,5 +1,5 @@
 import * as React from 'react';
-import "./BestSongs.css"
+import "./BestSongs.scss"
 
 export interface IBestSongsProps {
 }

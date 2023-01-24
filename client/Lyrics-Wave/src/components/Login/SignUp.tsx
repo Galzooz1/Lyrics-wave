@@ -1,52 +1,66 @@
 import * as React from 'react';
-import "./SignUp.css"
+import { useForm } from 'react-hook-form';
+import "./SignUp.scss"
 
 export interface ISignUpProps {
-}
-
-const closeSignUp = () => {
-    document.querySelector(".signUp-container")?.classList.add("signUp-container_hide")
-    document.querySelector(".signUp-container")?.classList.remove("signUp-container_non-hide")
+  signUp: boolean;
+  closeSignUp: () => void;
+  openLogin: () => void;
 }
 
 export function SignUp (props: ISignUpProps) {
-  return (
-    <div onClick={closeSignUp} className='signUp-container signUp-container_hide'>
-          <div onClick={(event) => event.stopPropagation()} className="signUp-main max-w-md w-full mx-auto">
-      <div className="signUp-container_header_small text-center font-medium text-xl">somothing</div>
-      <div className="signUp-container_header text-3xl font-bold text-gray-900 mt-2 text-center">signUp</div>
 
-      <div className="max-w-md w-full mx-auto mt-4 bg-white p-8 border border-gray-300">
-      <form className="space-y-6">
-        <div>
-          <label htmlFor="" className="text-sm font-bold text-gray-600 block">Email</label>
-          <input
-          //  ref={{...register("email")}} 
-           name="email" type="text" className="w-full p-2 border border-gray-300 rounded mt-1" />
-        </div>
-        <div>
-          <label htmlFor="" className="text-sm font-bold text-gray-600 block">Password</label>
-          <input type="password" className="w-full p-2 border border-gray-300 rounded mt-1" />
-        </div>
-        <div>
-          <label htmlFor="" className="text-sm font-bold text-gray-600 block">Source</label>
-          <select name="" id="" className="w-full p-2 border border-gray-300 rounded mt-1">
-            <option value="Youtube">Youtube</option>
-            <option value="Spotify">Spotify</option>
-          </select>
-        </div>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <input type="checkbox" className="h-4 w-4 text-blue-300 rounded" />
-            <label htmlFor="" className="ml-2 text-sm text-gray-600">Remember me</label>
+//משיכת מידע
+const { register, handleSubmit } = useForm();
+const onSubmit = handleSubmit(data => {
+  console.log(data)
+})
+
+
+  return (
+<div>
+{props.signUp && <div className='signUp-container' onClick={props.closeSignUp}>
+  <div>
+    <div className="signUp-container_header">SignUp</div>
+      <div onClick={(event) => event.stopPropagation()} className="signUp-main">
+        <form onSubmit={onSubmit} className="signUp-main_form">
+          <div>
+            <label className='signUp-main_form_label'>Nickname</label>
+            <input className="signUp-main_form_label_input" type="text" />
           </div>
-        </div>
-        <div>
-          <button type="submit" className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded-md text-white text-sm">Submit</button>
-        </div>
-      </form>
+          <div>
+            <label className="signUp-main_form_label">Email</label><br></br>
+            <input
+            //  ref={{...register("email")}} 
+             name="email" type="text" className="signUp-main_form_label_input" />
+          </div>
+          <div>
+            <label className="signUp-main_form_label">Password</label><br></br>
+            <input type="password" className="signUp-main_form_label_input" />
+          </div>
+          <div>
+            <label className="signUp-main_form_label">Source</label><br></br>
+            <select className="signUp-main_form_label_select">
+              <option value="Youtube">Youtube</option>
+              <option value="Spotify">Spotify</option>
+            </select>
+          </div><br></br>
+          <div className="signUp-main_bottom">
+            <div className="signUp-main_bottom_checkbox">
+              <input type="checkbox" className="signUp-main_bottom_checkbox_input" />
+              <label className="signUp-main_bottom_checkbox_label">Remember me</label>
+            </div>
+          </div>
+          <div><br></br>
+            <button type="submit" className="signUp-main_bottom_submit">SignUp</button>
+          </div><br></br>
+          <div className='signUp-main_bottom_login'>
+            <p>Already a member? <a onClick={() => {props.openLogin(); props.closeSignUp()}} href='#' className='signUp-main_bottom_login_link'>Login</a></p>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
-    </div>
+  </div>}
+</div>
   );
 }
