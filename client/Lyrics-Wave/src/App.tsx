@@ -1,17 +1,21 @@
-import { Header } from './components/HomePage/Header';
-import { BestSongs } from './components/HomePage/BestSongs';
-import { About } from './components/HomePage/About';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./styles/main.scss";
+import HomePage from './components/HomePage/homePage';
 import { Footer } from './components/HomePage/Footer';
-import "./styles/main.scss"
+import { Header } from "./components/HomePage/Header";
 
 function App() {
 
   return (
-    <div>
+    <>
       <Header />
-      <About />
       <Footer />
-    </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   )
 }
 

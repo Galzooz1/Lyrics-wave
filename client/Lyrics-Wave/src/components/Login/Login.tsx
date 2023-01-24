@@ -3,12 +3,13 @@ import { useForm } from 'react-hook-form';
 import "./Login.scss"
 
 export interface ILoginProps {
-  login: boolean;
-  closeLogin: () => void;
-  openSignUp: () => void;
+  popLogIn: boolean;
+  setPopLogIn: any;
+  setPopSignUp: any;
 }
 
 export function Login (props: ILoginProps) {
+  const { popLogIn, setPopLogIn, setPopSignUp } = props;
 
 //משיכת מידע
 const { register, handleSubmit } = useForm();
@@ -18,7 +19,7 @@ const onSubmit = handleSubmit(data => {
 
   return (
     <div>
-{props.login && (<div className='login-container' onClick={props.closeLogin}><div>
+{popLogIn && (<div className='login-container' onClick={() => setPopLogIn(true)}><div>
       <div className="login-container_header">Login</div>
       <div onClick={(event) => event.stopPropagation()} className="login-main">
       <form onSubmit={onSubmit} className="login-main_form">
@@ -50,7 +51,7 @@ const onSubmit = handleSubmit(data => {
         </div><br></br>
         <div className='login-main_bottom_unregistered'>
           <p>Forget your password? press <a href='#' className='login-main_bottom_password_link'>here</a></p>
-          <p>Unregistered ? press <a onClick={() => {props.closeLogin(); props.openSignUp()}} href='#' className='login-main_bottom_unregistered_link'>here</a></p>
+          <p>Unregistered ? press <a onClick={() => {setPopLogIn(false); setPopSignUp(true)}} href='#' className='login-main_bottom_unregistered_link'>here</a></p>
         </div>
       </form>
     </div>

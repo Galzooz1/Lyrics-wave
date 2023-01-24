@@ -1,7 +1,6 @@
 import * as React from 'react';
 import "./About.scss"
 import logo from '../HomePage/logo.png'
-import { BestSongs } from './BestSongs';
 
 export interface IAboutProps {
 
@@ -18,7 +17,6 @@ export function About (props: IAboutProps) {
               Purus ut faucibus pulvinar elementum integer enim neque volutpat ac.</p>
           <img className='about-main_logo' src={logo} />
       </div>
-      <BestSongs />
     </div>
   );
 }

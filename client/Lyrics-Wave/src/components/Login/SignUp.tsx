@@ -3,13 +3,13 @@ import { useForm } from 'react-hook-form';
 import "./SignUp.scss"
 
 export interface ISignUpProps {
-  signUp: boolean;
-  closeSignUp: () => void;
-  openLogin: () => void;
+  popSignUp: boolean;
+  setPopSignUp: any;
+  setPopLogIn: any;
 }
 
 export function SignUp (props: ISignUpProps) {
-
+const { popSignUp, setPopSignUp, setPopLogIn } = props;
 //משיכת מידע
 const { register, handleSubmit } = useForm();
 const onSubmit = handleSubmit(data => {
@@ -19,7 +19,7 @@ const onSubmit = handleSubmit(data => {
 
   return (
 <div>
-{props.signUp && <div className='signUp-container' onClick={props.closeSignUp}>
+{popSignUp && <div className='signUp-container' onClick={() => setPopSignUp(true)}>
   <div>
     <div className="signUp-container_header">SignUp</div>
       <div onClick={(event) => event.stopPropagation()} className="signUp-main">
@@ -55,7 +55,7 @@ const onSubmit = handleSubmit(data => {
             <button type="submit" className="signUp-main_bottom_submit">SignUp</button>
           </div><br></br>
           <div className='signUp-main_bottom_login'>
-            <p>Already a member? <a onClick={() => {props.openLogin(); props.closeSignUp()}} href='#' className='signUp-main_bottom_login_link'>Login</a></p>
+            <p>Already a member? <a onClick={() => {setPopSignUp(false);setPopLogIn(true);}} href='#' className='signUp-main_bottom_login_link'>Login</a></p>
           </div>
         </form>
       </div>
