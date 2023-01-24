@@ -1,6 +1,6 @@
 import * as React from 'react';
 import "./Header.scss"
-import logoSmall from '../HomePage/logo-small.png'
+import logoSmall from '../../assets/logo-small.png';
 import { Login } from '../Login/Login';
 import { SignUp } from '../Login/SignUp';
 import { useForm } from 'react-hook-form';

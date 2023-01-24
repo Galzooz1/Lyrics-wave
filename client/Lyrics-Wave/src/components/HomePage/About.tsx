@@ -1,6 +1,6 @@
 import * as React from 'react';
 import "./About.scss"
-import logo from '../HomePage/logo.png'
+import logo from '../../assets/logo.png'
 
 export interface IAboutProps {
 
