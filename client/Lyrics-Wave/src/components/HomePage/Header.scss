@@ -1,3 +1,5 @@
+@import "../../styles/main.scss";
+
 .header{
     z-index: 1;
     position: fixed;
@@ -11,12 +13,18 @@
     height: 6rem;
     background-color: var(--primary_color);
     color: var(--white);
+
+    @include mediaQuery(phone) {
+      background-color: red;
+    }
+
     a{
       font-size: 1.8rem;
       text-decoration: none;
       color: var(--white);
       font-weight: 500;
     }
+    
     &_left{
       position: relative;
       display: flex;

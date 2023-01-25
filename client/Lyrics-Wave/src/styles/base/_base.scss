@@ -1,0 +1,34 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    /*
+    using default font-size for each element as 66% of the initial value font-size
+    which is 16px. that means the default value now for our project is equals 10px.
+    when we use rem for the rest of the elements it implements directly by the root
+    specification of the font-size.
+    so for now every 1rem = 10px;
+    and if we want to change all website font-size for user reasons,
+    all we need to change is the font-size % of our root element.
+    Which also help us maintain scalable code and improve responsive design!
+    */
+    //defines what 1rem is = 10px
+    font-size: 62.5%; // 10px
+
+
+    //passing entire line of code to mixin of media query
+    @include mediaQuery(tab-land) { // width < 1200?
+        font-size: 56.25%;//1rem = 9px
+    }
+    @include mediaQuery(tab-port) { //width < 900?
+        font-size: 50%;//1rem = 8px
+    }
+    @include mediaQuery(big-desktop) { //width > 1800?
+        font-size: 80%;//1rem = 12px
+    }
+}
