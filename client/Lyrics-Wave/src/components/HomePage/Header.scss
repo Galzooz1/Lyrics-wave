@@ -26,7 +26,7 @@
         height: 4rem;
       }
       a{
-        margin-right: 1rem;
+        margin-left: 1rem;
         &::after {
           content: '';
           display: block;
@@ -47,7 +47,6 @@
       align-items: center;
       position: relative;
       a{
-        margin-right: 6rem;
         &::after {
           content: '';
           display: block;
@@ -82,16 +81,3 @@
       }
     }
   }
-
-  @media (max-width: 1220px) {
-    .header{
-      a{
-        font-size: 1.2rem;
-      }
-      &_mid_context{
-        a{
-          margin-right: 3rem;
-        }
-      }
-    }
-}

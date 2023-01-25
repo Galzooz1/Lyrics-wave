@@ -1,9 +1,8 @@
 import * as React from 'react';
-import "./Header.scss"
+import "./header.scss"
 import logoSmall from '../../assets/logo-small.png';
-import { Login } from '../Login/Login';
-import { SignUp } from '../Login/SignUp';
-import { useForm } from 'react-hook-form';
+import { SignIn } from '../Login/signIn';
+import { SignUp } from '../Login/signUp';
 import { useState } from 'react';
 
 export interface IHeaderProps {
@@ -12,7 +11,7 @@ export interface IHeaderProps {
 export function Header (props: IHeaderProps) {
 
   // פתיחה וסגירה של ההתחברות
-  const [popLogIn, setPopLogIn] = useState<boolean>(false)
+  const [popSignIn, setPopSignIn] = useState<boolean>(false)
 
   // פתיחה וסגירה של ההרשמה 
   const [popSignUp, setPopSignUp] = useState<boolean>(false)
@@ -20,26 +19,23 @@ export function Header (props: IHeaderProps) {
   return (
 
     <div>
-      <Login 
-      popLogIn={popLogIn}
-      setPopLogIn={setPopLogIn}
+      <SignIn
+      popSignIn={popSignIn}
+      setPopSignIn={setPopSignIn}
       setPopSignUp={setPopSignUp}
       />
       <SignUp
       popSignUp={popSignUp}
       setPopSignUp={setPopSignUp}
-      setPopLogIn={setPopLogIn}
+      setPopSignIn={setPopSignIn}
       />
 
 
       <header className="header">
       <div className="header_left">
         <img className='header_left_logo_small' src={logoSmall} />
-        <a onClick={() => setPopSignUp(!popSignUp)} href="#" className="header_left_context link">
-         Sign Up
-        </a>
-        <a onClick={() => setPopLogIn(!popLogIn)} href="#" className="header_left_context link">
-          Login
+        <a onClick={() => setPopSignIn(!popSignIn)} href="#" className="header_left_context link">
+          Sign in
         </a>
       </div>
       <div className="header_mid_context">

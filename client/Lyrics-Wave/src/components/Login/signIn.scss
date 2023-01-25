@@ -1,10 +1,10 @@
-// makes the black background of the login form
-.login-container{
+// makes the  background of the sign-in form
+.sign-in-container{
     z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.7);
+    background: linear-gradient(120deg,var(--color2), rgba(0, 0, 0, 0.7));
     position: fixed;
     top: 0;
     right: 0;
@@ -15,15 +15,19 @@
     &_header{
         font-weight: 600;
         text-align: center;
-        color: var(--white);
-        font-size: 3em;
+        color: var(--black);
+        font-size: 2.5em;
+        &_hr{
+            margin-bottom: 1rem;
+        }
     }
 }
 
 
-.login-main{
+.sign-in-main{
     min-width: 25rem;
     padding: 2rem;
+    border-radius: 10px;
     background-color: var(--white);
     display: flex;
     flex-direction: column;
@@ -33,11 +37,14 @@
             font-size: 1.2em;
             font-weight: 600;
             &_input{
+                margin-bottom: 1rem;
                 min-width: 100%;
-                border: solid 1px var(--black);
+                border-bottom: solid 1px var(--black);
             }
             &_select{
                 min-width: 100%;
+                text-align: center;
+                border-radius: 10px;
                 border: solid 1px var(--black);
             }
         }
@@ -60,7 +67,7 @@
             min-width: 100%;
             border-radius: 5px;
             color: var(--white);
-            background-color: var(--primary_color);
+            background-color: var(--color2);
         }
         &_unregistered{
             text-align: center;

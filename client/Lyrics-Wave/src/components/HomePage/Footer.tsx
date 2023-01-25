@@ -1,5 +1,5 @@
 import * as React from 'react';
-import "./Footer.scss"
+import "./footer.scss"
 
 export interface IFooterProps {
 }

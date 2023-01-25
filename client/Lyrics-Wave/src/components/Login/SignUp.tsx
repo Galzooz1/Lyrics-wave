@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
-import "./SignUp.scss"
+import "./signUp.scss"
 
 export interface ISignUpProps {
   popSignUp: boolean;
   setPopSignUp: any;
-  setPopLogIn: any;
+  setPopSignIn: any;
 }
 
 export function SignUp (props: ISignUpProps) {
-const { popSignUp, setPopSignUp, setPopLogIn } = props;
+const { popSignUp, setPopSignUp, setPopSignIn } = props;
 //משיכת מידע
 const { register, handleSubmit } = useForm();
 const onSubmit = handleSubmit(data => {
@@ -18,49 +18,61 @@ const onSubmit = handleSubmit(data => {
 
 
   return (
-<div>
-{popSignUp && <div className='signUp-container' onClick={() => setPopSignUp(true)}>
   <div>
-    <div className="signUp-container_header">SignUp</div>
+    {popSignUp && <div className='signUp-container' onClick={() => setPopSignUp(false)}><div>
+
+
       <div onClick={(event) => event.stopPropagation()} className="signUp-main">
         <form onSubmit={onSubmit} className="signUp-main_form">
+        
+        <div className="signUp-container_header">Sign Up</div>
+        <hr className='signUp-container_header_hr'/>
+          
           <div>
             <label className='signUp-main_form_label'>Nickname</label>
-            <input className="signUp-main_form_label_input" type="text" />
+            <input {...register("nickname")} className="signUp-main_form_label_input" type="text" />
           </div>
+          
           <div>
-            <label className="signUp-main_form_label">Email</label><br></br>
+            <label className="signUp-main_form_label">Email</label>
             <input
-            //  ref={{...register("email")}} 
-             name="email" type="text" className="signUp-main_form_label_input" />
+             {...register("email")} type="text" className="signUp-main_form_label_input" />
           </div>
+          
           <div>
-            <label className="signUp-main_form_label">Password</label><br></br>
-            <input type="password" className="signUp-main_form_label_input" />
+            <label className="signUp-main_form_label">Password</label>
+            <input {...register("password")} type="password" className="signUp-main_form_label_input" />
           </div>
+          
           <div>
-            <label className="signUp-main_form_label">Source</label><br></br>
-            <select className="signUp-main_form_label_select">
+          <label className="signUp-main_form_label">Source</label>
+            <select {...register("source")} className="signUp-main_form_label_select">
               <option value="Youtube">Youtube</option>
               <option value="Spotify">Spotify</option>
             </select>
-          </div><br></br>
+          </div>
+          
+          <br></br>
           <div className="signUp-main_bottom">
             <div className="signUp-main_bottom_checkbox">
-              <input type="checkbox" className="signUp-main_bottom_checkbox_input" />
+              <input {...register("remember-me")} type="checkbox" className="signUp-main_bottom_checkbox_input" />
               <label className="signUp-main_bottom_checkbox_label">Remember me</label>
             </div>
           </div>
-          <div><br></br>
-            <button type="submit" className="signUp-main_bottom_submit">SignUp</button>
-          </div><br></br>
-          <div className='signUp-main_bottom_login'>
-            <p>Already a member? <a onClick={() => {setPopSignUp(false);setPopLogIn(true);}} href='#' className='signUp-main_bottom_login_link'>Login</a></p>
+          
+          <div>
+          <br></br>
+          <button type="submit" className="signUp-main_bottom_submit">Sign Up</button>
+          <br></br>
+          </div>
+          
+          <div className='signUp-main_bottom_sign-in'>
+            <br></br>
+            <p>Already a member? <a onClick={() => {setPopSignUp(false);setPopSignIn(true);}} href='#' className='signUp-main_bottom_sign-in_link'>Sign in</a></p>
           </div>
         </form>
       </div>
     </div>
   </div>}
-</div>
-  );
+</div>);
 }
