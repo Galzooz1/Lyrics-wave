@@ -1,13 +1,13 @@
 import * as React from 'react';
 import "./bestSongs+newSongs.scss"
 
-export interface IBestSongsProps {
+export interface INewSongsProps {
 }
 
-export function BestSongs (props: IBestSongsProps) {
+export function NewSongs (props: INewSongsProps) {
   return (
     <div className='best-songs-main'>
-      <h1 className='best-songs-main_headline'>Best Songs</h1>
+      <h1 className='best-songs-main_headline'>New Songs</h1>
       <div className='best-songs-main_song'>
         <div className='best-songs-main_song_img-name'>
             <img src='https://static.generated.photos/vue-static/face-generator/landing/wall/14.jpg'></img>

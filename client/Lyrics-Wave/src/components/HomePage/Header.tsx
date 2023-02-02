@@ -34,15 +34,19 @@ export function Header (props: IHeaderProps) {
       <header className="header">
       <div className="header_left">
         <img className='header_left_logo_small' src={logoSmall} />
-        <a onClick={() => setPopSignIn(!popSignIn)} href="#" className="header_left_context link">
-          Sign in
-        </a>
       </div>
-      <div className="header_mid_context">
-        <a href="#" className="link">About</a>
-      </div>
+      <div>
       <div className="header_right_context">
-        <a href="#">Post A Song</a>
+        <div className='header_right_context_input-div'>
+          <img className='header_right_context_input-div_img' src="./src/assets/magnifyingGlass.svg"/>
+          <input className='header_right_context_input-div_input' placeholder='Find a song' type="text" />
+        </div>
+        <div>
+          <a onClick={() => setPopSignIn(!popSignIn)} href="#" className="header_right_context_sign-in link">Sign in</a></div>
+        <div className="header_right_context_post-a-song">
+          <a  href="#">Post A Song</a>
+        </div>
+      </div>
       </div>
     </header>
     </div>

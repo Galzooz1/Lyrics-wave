@@ -16,7 +16,7 @@
         font-weight: 600;
         text-align: center;
         color: var(--black);
-        font-size: 2.5em;
+        font-size: 3rem;
         &_hr{
             margin-bottom: 1rem;
         }
@@ -25,23 +25,32 @@
 
 
 .sign-in-main{
-    min-width: 25rem;
+    width: 30rem;
     padding: 2rem;
     border-radius: 10px;
     background-color: var(--white);
     display: flex;
     flex-direction: column;
+    &_X{
+        text-align: center;
+        width: 1rem;
+    }
     &_form{
         &_label{
             color: var(--black);
-            font-size: 1.2em;
+            font-size: 1.4rem;
             font-weight: 600;
             &_input{
+                font-size: 1.6rem;
                 margin-bottom: 1rem;
                 min-width: 100%;
                 border-bottom: solid 1px var(--black);
+                &:focus{
+                    outline: none;
+                  }
             }
             &_select{
+                font-size: 1.5rem;
                 min-width: 100%;
                 text-align: center;
                 border-radius: 10px;
@@ -52,17 +61,20 @@
     }
     &_bottom{
         &_checkbox{
+            display: flex;
+            align-items: center;
             &_input{
                 margin-right: 0.3rem;
                 background-color: var(--black);
             }
             &_label{
                 color: var(--black);
-                font-size: 1em;
+                font-size: 1.3rem;
                 font-weight: 600;
             }
         }
         &_submit{
+            font-size: 1.5rem;
             min-height: 2rem;
             min-width: 100%;
             border-radius: 5px;

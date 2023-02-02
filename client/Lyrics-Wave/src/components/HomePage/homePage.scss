@@ -1,7 +1,19 @@
-.homePage-about-bestSongs{
-    padding: 0 2rem;
-    margin-top: 10rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
+@import "../../styles/main.scss";
+
+.homePage{
+    &_bestSongs-newSongs{
+        margin-top: 6rem;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        @include mediaQuery(tab-land) {
+            display: grid;
+            margin-top: 8rem;
+          }
+    }
+    &_about{
+        display: flex;
+        justify-content: center;
+    }
 }

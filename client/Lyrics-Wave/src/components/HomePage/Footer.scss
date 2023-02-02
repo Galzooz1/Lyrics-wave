@@ -1,9 +1,37 @@
 .footer-main{
-    position: fixed;
+    z-index: 1;
+    position: relative;
     bottom: 0;
+    margin: 0;
     width: 100%;
     display: flex;
-    height: 60px;
-    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8rem;
     background-color: var(--primary_color);
+    color: var(--white);
+    &_logo{
+        height: 6rem;
+    }
+    &_mid{
+        display: grid;
+        p{
+            font-size: 1.2rem;
+        }
+        &_social{
+            margin: auto;
+            button{
+                margin-right: 0.5rem;
+                font-size: 2rem;
+                border: 1px solid;
+                padding: 0.5rem;
+                border-radius: 50px;
+                &:hover{
+                    color: var(--black);
+                    background-color: var(--white);
+                }
+            }
+        }
+    }
+    
 }

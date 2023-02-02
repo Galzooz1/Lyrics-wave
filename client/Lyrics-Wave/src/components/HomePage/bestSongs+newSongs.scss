@@ -1,34 +1,41 @@
+@import "../../styles/main.scss";
+
 .best-songs-main{
     font-family: 'Montserrat', sans-serif;
     display: block;
     background-color: var(--primary_color);
     height: 30rem;
-    width: 25rem;
+    width: 55rem;
     color: var(--white);
     box-shadow: 5px 5px 20px #000000;
+    @include mediaQuery(tab-land) {
+        margin-bottom: 2rem;
+      }
+    @include mediaQuery(phone) {
+        width: 45rem;
+    }
 
     &_headline{
         margin: 1rem;
         text-align: center;
         font-weight: 600;
-        font-size: 2em;
+        font-size: 3rem;
     }
-
     &_song{
         padding: 1rem;
-        border: solid 1px var(--color1);
         margin: 0.5rem;
         p{
+            font-weight: 600;
+            font-size: 1.5rem;
             margin: 0.8rem 0 0;
         }
         img{
             border-radius: 50%;
-            height: 2.5rem;
-            width: 2.5rem;
+            height: 4rem;
+            width: 4rem;
         }
         &_img-name{
             display: flex;
-            align-items: center;
             p{
                 margin-left: 0.5rem;
             }

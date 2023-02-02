@@ -22,6 +22,7 @@ const onSubmit = handleSubmit(data => {
         
         
         <div onClick={(event) => event.stopPropagation()} className="sign-in-main">
+        <button onClick={() => setPopSignIn(false)} className="sign-in-main_X">X</button>
         <form onSubmit={onSubmit} className="sign-in-main_form">
         
         <div className="sign-in-container_header">Sign in</div>
