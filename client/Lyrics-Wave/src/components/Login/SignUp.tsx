@@ -23,7 +23,7 @@ const onSubmit = handleSubmit(data => {
 
 
       <div onClick={(event) => event.stopPropagation()} className="signUp-main">
-      <button onClick={() => setPopSignUp(false)} className="signUp-main_X">X</button>
+      <button onClick={() => setPopSignUp(false)} ><img className='sign-in-main_close-icon' src="../src/assets/icons/close.svg" /></button>
         <form onSubmit={onSubmit} className="signUp-main_form">
         
         <div className="signUp-container_header">Sign Up</div>

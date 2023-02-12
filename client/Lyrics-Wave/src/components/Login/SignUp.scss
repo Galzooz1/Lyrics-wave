@@ -13,7 +13,7 @@
     width: 100%;
     height: 100%;
     &_header{
-        font-weight: 600;
+        font-weight: var(--boldWeight);
         text-align: center;
         color: var(--black);
         font-size: 3rem;
@@ -37,15 +37,15 @@
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    &_X{
+    &_close-icon{
         text-align: center;
-        width: 1rem;
+        width: 1.5rem;
     }
     &_form{
         &_label{
             color: var(--black);
             font-size: 1.4rem;
-            font-weight: 600;
+            font-weight: var(--boldWeight);
             &_input{
                 font-size: 1.6rem;
                 margin-bottom: 1rem;
@@ -76,7 +76,7 @@
             &_label{
                 color: var(--black);
                 font-size: 1.3rem;
-                font-weight: 600;
+                font-weight: var(--boldWeight);
             }
         }
         &_submit{
@@ -91,7 +91,7 @@
             text-align: center;
             &_link{
                 color: blue;
-                font-weight: 600;
+                font-weight: var(--boldWeight);
                 text-decoration: underline;
             }
         }

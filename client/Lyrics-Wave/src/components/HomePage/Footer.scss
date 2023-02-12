@@ -5,6 +5,7 @@
     margin: 0;
     width: 100%;
     display: flex;
+    justify-content: center;
     justify-content: space-around;
     align-items: center;
     min-height: 8rem;
@@ -14,12 +15,17 @@
         height: 6rem;
     }
     &_mid{
-        display: grid;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         p{
             font-size: 1.2rem;
         }
         &_social{
             margin: auto;
+            &_icon{
+                height: 2.5rem;
+            }
             button{
                 margin-right: 0.5rem;
                 font-size: 2rem;
@@ -27,8 +33,9 @@
                 padding: 0.5rem;
                 border-radius: 50px;
                 &:hover{
-                    color: var(--black);
-                    background-color: var(--white);
+                    opacity: 0.8;
+                    background-color: var(--color2);
+                    border: 1px solid var(--color2);
                 }
             }
         }

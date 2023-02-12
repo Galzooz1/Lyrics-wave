@@ -1,19 +1,40 @@
 @import "../../styles/main.scss";
 
 .homePage{
-    &_bestSongs-newSongs{
-        margin-top: 6rem;
-        padding: 0 2rem;
+    &_open-section{
+        margin-top: 8rem;
         display: flex;
-        justify-content: space-around;
-        align-items: flex-start;
-        @include mediaQuery(tab-land) {
-            display: grid;
-            margin-top: 8rem;
-          }
-    }
-    &_about{
-        display: flex;
+        text-align: center;
         justify-content: center;
+        flex-direction: column;
+        h1{
+            font-size: 4rem;
+            font-weight: var(--boldWeight);
+            margin: auto;
+            @include mediaQuery(tab-land) {
+                font-size: 6rem;
+            }
+        }
+        &_start-button{
+            background-color: var(--primary_color);
+            color: var(--white);
+            border: 2px solid var(--primary_color);
+            padding: 0.5rem 2rem;
+            border-radius: 50px;
+            margin: 2rem auto 0 auto;
+            font-size: 2rem;
+            min-height: 5rem;
+            max-width: 20rem;
+            font-weight: var(--boldWeight);
+            &:hover{
+                border: 2px solid var(--primary_color);
+                background-color: var(--white);
+                color: var(--black);
+            }
+        }
+        &_about{
+            display: flex;
+            justify-content: center;
+        }
     }
 }

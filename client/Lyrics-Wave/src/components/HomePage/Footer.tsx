@@ -1,7 +1,6 @@
 import * as React from 'react';
 import "./footer.scss"
 import logoSmall from '../../assets/logo-small.png';
-import { FaFacebookF, FaInstagram, FaYoutube, FaTwitter } from 'react-icons/fa';
 
 
 export interface IFooterProps {
@@ -13,10 +12,10 @@ export function Footer (props: IFooterProps) {
         {/* <img className='footer-main_logo' src={logoSmall} /> */}
         <div className='footer-main_mid'>
           <div className='footer-main_mid_social'>
-            <button><FaFacebookF /></button>
-            <button><FaInstagram /></button>
-            <button><FaYoutube /></button>
-            <button><FaTwitter /></button>
+            <button><img className='footer-main_mid_social_icon' src="../src/assets/icons/facebook.svg" alt="" /></button>
+            <button><img className='footer-main_mid_social_icon'src="../src/assets/icons/instagram.svg" alt="" /></button>
+            <button><img className='footer-main_mid_social_icon'src="../src/assets/icons/youtube.svg" alt="" /></button>
+            <button><img className='footer-main_mid_social_icon'src="../src/assets/icons/twitter.svg" alt="" /></button>
           </div>
           <div>
             <p>All rights reserved - "Lyrics-Wave"</p>
