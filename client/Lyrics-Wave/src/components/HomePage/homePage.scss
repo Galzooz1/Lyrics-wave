@@ -2,7 +2,7 @@
 
 .homePage{
     &_open-section{
-        margin-top: 8rem;
+        margin-top: 12rem;
         display: flex;
         text-align: center;
         justify-content: center;
@@ -35,6 +35,16 @@
         &_about{
             display: flex;
             justify-content: center;
+        }
+    }
+    &_songsDisplay {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+
+        @include mediaQuery(phone) {
+            flex-direction: column;
         }
     }
 }

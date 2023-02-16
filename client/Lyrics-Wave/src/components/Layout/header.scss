@@ -6,15 +6,16 @@
     top: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin: 0;
-    height: 6rem;
-    background-color: var(--primary_color);
+    height: 12rem;
+    // background-color: var(--primary_color);
+    background-image: linear-gradient(var(--secondary_color), var(--primary_color));
     color: var(--white);
+    // clip-path: polygon( 0 0, 100% 0, 100% 100%, 0 calc(100% - 4vw) );
+    background-color: var(--tertiary_color);
 
-    @include mediaQuery(phone) {
-    }
     a{
       font-size: 1.3rem;
       text-decoration: none;
@@ -26,40 +27,39 @@
     }
 
 
-    &_left{
+    &_logo{
       position: relative;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      &_logo_small{
-        height: 6rem;
-        width: 6rem;
-        min-height: 6rem;
-        min-width: 6rem;
+      img{
+        max-height: 6rem;
+        max-width: 6rem;
       }
     }
   
 
-    &_right_context{
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      min-width: 100%;
-      margin-right: 6rem;
-      &_find-song{
-        min-width: 50%;
+    &_nav{
+      // display: flex;
+      // align-items: center;
+      // justify-content: space-around;
+      // min-width: 100%;
+      // margin-right: 6rem;
+      
+      &_search{
+        min-width: 20rem;
         border-radius: 50px;
         background-color: var(--white);
         padding: 0.1rem;
         display: flex;
-        align-self: center;
-        &_img{
+        // align-items: center;
+        &-img{
           height: 3rem;
           z-index: 2;
         }
-        &_input{
+        &-input{
           font-size: 1.2rem;
-          max-width: 13rem;
+          // max-width: 13rem;
           background: var(--white);
           color: black;
           &:focus{
@@ -67,7 +67,14 @@
           }
         }
       }
-      &_sign-in{
+    }
+    &_actions {
+      display: flex;
+      align-items: center;
+      > * {
+        margin:0 1rem;
+      }
+      &-signin{
         &::after {
           content: '';
           display: block;
@@ -80,7 +87,7 @@
           width: 100%;
         }
       }
-      &_post-a-song{
+      &-post{
         a{
           color: var(--white);
         }

@@ -1,13 +1,13 @@
-import * as React from 'react';
+import React from 'react';
 import "./footer.scss"
 import logoSmall from '../../assets/logo-small.png';
 
+interface FooterProps {
+  
+};
 
-export interface IFooterProps {
-}
-
-export function Footer (props: IFooterProps) {
-  return (
+const Footer: React.FC<FooterProps> = () => {
+  return(
     <div className='footer-main'>
         {/* <img className='footer-main_logo' src={logoSmall} /> */}
         <div className='footer-main_mid'>
@@ -22,5 +22,7 @@ export function Footer (props: IFooterProps) {
           </div>
         </div>
     </div>
-  );
+  )
 }
+
+export default Footer

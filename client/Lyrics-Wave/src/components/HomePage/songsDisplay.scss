@@ -4,6 +4,8 @@
 .songsDisplay-main{
     display: flex;
     flex-direction: column;
+    width: 100%;
+    margin:0 2rem;
     &_container{
         font-family: 'Montserrat', sans-serif;
         display: block;

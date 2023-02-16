@@ -1,12 +1,13 @@
-import * as React from 'react';
+import React from 'react';
 import "./songsDisplay.scss"
 
-export interface ISongsDisplayProps {
-}
+interface SongsDisplayProps {
+  
+};
 
-export function SongsDisplay (props: ISongsDisplayProps) {
-  return (
-  <div className='songsDisplay-main'>
+const SongsDisplay: React.FC<SongsDisplayProps> = () => {
+  return(
+    <div className='songsDisplay-main'>
     <div className='songsDisplay-main_container'>
       <h1 className='songsDisplay-main_container_headline'>Best Songs</h1>
       <div className='songsDisplay-main_container_song'>
@@ -19,5 +20,7 @@ export function SongsDisplay (props: ISongsDisplayProps) {
       </div>
     </div>
   </div>
-  );
+  )
 }
+
+export default SongsDisplay;

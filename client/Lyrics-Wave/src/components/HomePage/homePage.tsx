@@ -1,28 +1,30 @@
-import * as React from 'react';
-import { About } from './about';
-import { SongsDisplay } from './songsDisplay';
-import { Footer } from './footer';
-import { Header } from './header';
-import "./homePage.scss"
+import React from "react";
+import About from "./about";
+import SongsDisplay from "./songsDisplay";
+import "./homePage.scss";
 
-export interface IHomePageProps {
+interface HomepageProps {
+
 }
 
-export default function HomePage (props: IHomePageProps) {
+const Homepage: React.FC<HomepageProps> = () => {
   return (
-  <div>
-        <Header />
-      <div className='homePage_open-section'>
+    <div>
+      <div className="homePage_open-section">
         <h1>Writing Creating Together</h1>
-        <button className='homePage_open-section_start-button'>Start writing</button>
+        <button className="homePage_open-section_start-button">
+          Start writing
+        </button>
       </div>
-      <div className='homePage_bestSongs-newSongs'>
+      <div className="homePage_songsDisplay">
+        <SongsDisplay />
         <SongsDisplay />
       </div>
-      <div className='homePage_about'>
-        <About/>
+      <div className="homePage_about">
+        <About />
       </div>
-        <Footer />
-  </div>
+    </div>
   );
-}
+};
+
+export default Homepage;
