@@ -1,22 +1,37 @@
-import React from 'react';
+import React from "react";
+import { useState, useEffect } from "react";
 import "./header.scss";
 import logoSmall from "../../assets/logo-small.png";
 import SignIn from "../Login/signIn";
 import SignUp from "../Login/signUp";
-import { useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useAppSelector, useAppDispatch } from "../../hooks";
+import { LayoutSliceActions } from "./layoutReducer";
 
-interface HeaderProps {
-  
-};
+interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
-    // פתיחה וסגירה של ההתחברות
-    const [popSignIn, setPopSignIn] = useState<boolean>(false);
+  // פתיחה וסגירה של ההתחברות
+  const [popSignIn, setPopSignIn] = useState<boolean>(false);
 
-    // פתיחה וסגירה של ההרשמה
-    const [popSignUp, setPopSignUp] = useState<boolean>(false);
+  // פתיחה וסגירה של ההרשמה
+  const [popSignUp, setPopSignUp] = useState<boolean>(false);
   
-  return(
+  const { pathname } = useLocation();
+  const topPageState = useAppSelector((state) => state.layout.isTopPage);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    window.onscroll = () => {
+      if (window.scrollY === 0 && pathname === "/") {
+        dispatch(LayoutSliceActions.setIsTopPage(true));
+      }else {
+        dispatch(LayoutSliceActions.setIsTopPage(false));
+      }
+    };
+  }, [topPageState]);
+
+  return (
     <>
       <SignIn
         popSignIn={popSignIn}
@@ -29,7 +44,7 @@ const Header: React.FC<HeaderProps> = () => {
         setPopSignIn={setPopSignIn}
       />
 
-      <header className="header">
+      <header className={`header ${topPageState ? null : "header_TopPage"}`}>
         <div className="header_logo">
           <img src={logoSmall} />
         </div>
@@ -60,7 +75,7 @@ const Header: React.FC<HeaderProps> = () => {
         </div>
       </header>
     </>
-  )
-}
+  );
+};
 
 export default Header;

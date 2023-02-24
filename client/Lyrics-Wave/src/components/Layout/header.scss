@@ -5,16 +5,19 @@
     position: fixed;
     top: 0;
     width: 100%;
-    display: flex;
+    @include flexCenter;
     justify-content: space-around;
-    align-items: center;
     margin: 0;
     height: 12rem;
-    // background-color: var(--primary_color);
-    background-image: linear-gradient(var(--secondary_color), var(--primary_color));
     color: var(--white);
+    transition: 0.3s;
     // clip-path: polygon( 0 0, 100% 0, 100% 100%, 0 calc(100% - 4vw) );
-    background-color: var(--tertiary_color);
+    // background-color: var(--tertiary_color);
+    
+    &_TopPage {
+    background-color: var(--primary_color);
+    background-image: linear-gradient(var(--secondary_color), var(--primary_color));
+    }
 
     a{
       font-size: 1.3rem;
@@ -29,8 +32,7 @@
 
     &_logo{
       position: relative;
-      display: flex;
-      align-items: center;
+      @include flexCenter;
       justify-content: space-between;
       img{
         max-height: 6rem;

@@ -1,9 +1,8 @@
+@import '../../styles/main.scss';
 // makes the  background of the sign-in form
 .sign-in-container{
     z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flexCenter;
     background: linear-gradient(120deg,var(--color2), rgba(0, 0, 0, 0.7));
     position: fixed;
     top: 0;

@@ -4,8 +4,8 @@ import "./signIn.scss";
 
 interface SignInProps {
   popSignIn: boolean;
-  setPopSignIn: any;
-  setPopSignUp: any;
+  setPopSignIn: React.Dispatch<React.SetStateAction<boolean>>;
+  setPopSignUp: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const SignIn: React.FC<SignInProps> = (props) => {
