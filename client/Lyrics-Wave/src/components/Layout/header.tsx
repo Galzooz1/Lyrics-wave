@@ -6,7 +6,7 @@ import SignIn from "../Login/signIn";
 import SignUp from "../Login/signUp";
 import { useLocation } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../../hooks";
-import { LayoutSliceActions } from "./layoutReducer";
+import { LayoutSliceActions } from "./layoutSlice";
 
 interface HeaderProps {}
 

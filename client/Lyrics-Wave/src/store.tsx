@@ -1,10 +1,22 @@
-import { configureStore } from '@reduxjs/toolkit';
-import layoutReducer from './components/Layout/layoutReducer';
+import {
+  configureStore,
+  ThunkAction,
+  Action,
+  getDefaultMiddleware,
+} from "@reduxjs/toolkit";
+import layoutReducer from './components/Layout/layoutSlice';
+import homeReducer from './components/HomePage/homeSlice';
 // ...
+import ReduxLogger from "redux-logger";
+
+const middleware = (getDefaultMiddleware: any) =>
+  getDefaultMiddleware().concat(ReduxLogger);
 
 export const store = configureStore({
+  middleware,
   reducer: {
     layout: layoutReducer,
+    home: homeReducer
   },
 })
 
@@ -12,3 +24,9 @@ export const store = configureStore({
 export type RootState = ReturnType<typeof store.getState>
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  RootState,
+  unknown,
+  Action<string>
+>;
