@@ -3,6 +3,7 @@ const { graphqlHTTP } = require('express-graphql');
 const { buildSchema } = require('graphql');
 const session = require('express-session');
 const passport = require('passport');
+const cors = require('cors');
 const passportConfig = require('./services/auth');
 const db = require('./db/mongo');
 const { MONGO_URI } = require('./config/keys');
@@ -30,7 +31,7 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use(cors());
 
 app.use('/graphql', graphqlHTTP({
   schema,

@@ -5,8 +5,13 @@ const {
     GraphQLString, 
     GraphQLID, 
     GraphQLList, 
-    GraphQLInt 
+    GraphQLInt
 } = graphql;
+
+const {
+  GraphQLDateTime
+} = require('graphql-iso-date');
+
 const { SongSchema } = require('../models/song');
 const LyricType = require('./lyric_type');
 const Song = mongoose.model('song', SongSchema);
@@ -15,6 +20,7 @@ const SongType = new GraphQLObjectType({
   name:  'SongType',
   fields: () => ({
     id: { type: GraphQLID },
+    date: { type: GraphQLDateTime },
     title: { type: GraphQLString },
     likes: { type: GraphQLInt },
     usersLike: { 

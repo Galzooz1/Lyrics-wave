@@ -13,6 +13,20 @@ exports.getSongs = async() => {
     }
 }
 
+exports.getTopSongs = async(limitAmount, sortMethod) => {
+    try {
+        let topSongs;
+        if(sortMethod === 'date'){
+            topSongs = await Song.find({date: {$exists:true}}).sort({date: -1}).limit(limitAmount)
+        } else if(sortMethod === 'likes'){
+            topSongs = await Song.find({likes: {$exists:true}}).sort({likes: -1}).limit(limitAmount)
+        }        
+          return topSongs;
+    } catch (err) {
+        console.log(err);
+    }
+}
+
 exports.getSong = async(id) => {
     try {
         const song = await Song.findById(id);

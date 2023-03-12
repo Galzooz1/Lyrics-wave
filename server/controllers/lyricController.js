@@ -26,6 +26,7 @@ exports.getLyric = async (id) => {
     }
 }
 
+// Need to check
 exports.addLyric = async(args, req) => {
     try {
         if (!req.user) {
