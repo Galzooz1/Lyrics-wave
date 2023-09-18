@@ -2,6 +2,7 @@ const graphql = require('graphql');
 const { 
     GraphQLObjectType, 
     GraphQLID, 
+    GraphQLInt,
     GraphQLString, 
     GraphQLList, 
     GraphQLNonNull 
@@ -12,7 +13,7 @@ const {
     getUser 
 } = require('../../controllers/userController');
 const SongType = require('../song_type');
-const { getSongs, getSong } = require('../../controllers/songController');
+const { getSongs, getTopSongs ,getSong } = require('../../controllers/songController');
 const { getLyric, getLyrics } = require('../../controllers/lyricController');
 const LyricType = require('../lyric_type');
 
@@ -37,6 +38,13 @@ const RootQueryType = new GraphQLObjectType({
             type: new GraphQLList(SongType),
             async resolve(parentValue, args) {
                 return await getSongs();
+            }
+        },
+        topSongs: {
+            type: new GraphQLList(SongType),
+            args: { limitAmount: {type: new GraphQLNonNull(GraphQLInt)}, sortMethod: { type: new GraphQLNonNull(GraphQLString) } },
+            async resolve(parentValue, {limitAmount, sortMethod}) {
+                return await getTopSongs(limitAmount, sortMethod);
             }
         },
         song: {

@@ -1,0 +1,92 @@
+@import '../../styles/main.scss';
+// makes the  background of the sign-in form
+.sign-in-container{
+    z-index: 2;
+    @include flexCenter;
+    background: linear-gradient(120deg,var(--color2), rgba(0, 0, 0, 0.7));
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    &_header{
+        font-weight: var(--boldWeight);
+        text-align: center;
+        color: var(--black);
+        font-size: 3rem;
+        &_hr{
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+
+.sign-in-main{
+    width: 30rem;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    &_close-icon{
+        text-align: center;
+        width: 1.5rem;
+    }
+    &_form{
+        &_label{
+            color: var(--black);
+            font-size: 1.4rem;
+            font-weight: var(--boldWeight);
+            &_input{
+                font-size: 1.6rem;
+                margin-bottom: 1rem;
+                min-width: 100%;
+                border-bottom: solid 1px var(--black);
+                &:focus{
+                    outline: none;
+                  }
+            }
+            &_select{
+                font-size: 1.5rem;
+                min-width: 100%;
+                text-align: center;
+                border-radius: 10px;
+                border: solid 1px var(--black);
+            }
+        }
+
+    }
+    &_bottom{
+        &_checkbox{
+            display: flex;
+            align-items: center;
+            &_input{
+                margin-right: 0.3rem;
+                background-color: var(--black);
+            }
+            &_label{
+                color: var(--black);
+                font-size: 1.3rem;
+                font-weight: var(--boldWeight);
+            }
+        }
+        &_submit{
+            font-size: 1.5rem;
+            min-height: 2rem;
+            min-width: 100%;
+            border-radius: 5px;
+            color: var(--white);
+            background-color: var(--color2);
+        }
+        &_unregistered{
+            text-align: center;
+            &_link{
+                color: blue;
+                font-weight: var(--boldWeight);
+                text-decoration: underline;
+            }
+        }
+    }
+}

@@ -1,0 +1,110 @@
+@import "../../styles/main.scss";
+
+.header{
+    z-index: var(--zindex1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    @include flexCenter;
+    justify-content: space-around;
+    margin: 0;
+    height: 12rem;
+    color: var(--white);
+    transition: 0.3s;
+    // clip-path: polygon( 0 0, 100% 0, 100% 100%, 0 calc(100% - 4vw) );
+    // background-color: var(--tertiary_color);
+    
+    &_TopPage {
+    background-color: var(--primary_color);
+    background-image: linear-gradient(var(--secondary_color), var(--primary_color));
+    }
+
+    a{
+      font-size: 1.3rem;
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 500;
+      @include mediaQuery(tab-land) {
+        font-size: 1.6rem;
+      }
+    }
+
+
+    &_logo{
+      position: relative;
+      @include flexCenter;
+      justify-content: space-between;
+      img{
+        max-height: 6rem;
+        max-width: 6rem;
+      }
+    }
+  
+
+    &_nav{
+      // display: flex;
+      // align-items: center;
+      // justify-content: space-around;
+      // min-width: 100%;
+      // margin-right: 6rem;
+      
+      &_search{
+        min-width: 20rem;
+        border-radius: 50px;
+        background-color: var(--white);
+        padding: 0.1rem;
+        display: flex;
+        // align-items: center;
+        &-img{
+          height: 3rem;
+          z-index: 2;
+        }
+        &-input{
+          font-size: 1.2rem;
+          // max-width: 13rem;
+          background: var(--white);
+          color: black;
+          &:focus{
+            outline: none;
+          }
+        }
+      }
+    }
+    &_actions {
+      display: flex;
+      align-items: center;
+      > * {
+        margin:0 1rem;
+      }
+      &-signin{
+        &::after {
+          content: '';
+          display: block;
+          width: 0;
+          height: 2px;
+          background: var(--color2);
+          transition: width .3s ease-in;
+        }
+        &:hover::after {
+          width: 100%;
+        }
+      }
+      &-post{
+        a{
+          color: var(--white);
+        }
+        margin-bottom: 0.1rem;
+        padding: 0.4rem;
+        border-radius: 10px;
+        background-color: var(--color1);
+        &:hover{
+          a{
+            color: var(--black);
+          }
+        background-color: var(--color3);
+        transition: all 0.3s ease-out;
+        transform: translateY(2px);
+        }
+      }
+    }
+  }

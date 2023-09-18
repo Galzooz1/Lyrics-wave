@@ -1,0 +1,51 @@
+@import "../../styles/main.scss";
+
+
+.songsDisplay-main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin:0 2rem;
+    &_container{
+        font-family: 'Montserrat', sans-serif;
+        display: block;
+        color: var(--white);
+        background-color: var(--primary_color);
+        height: 30rem;
+        width: 100%;
+        margin: 4rem 0 0 0;
+        box-shadow: var(--shadowBlack);
+        @include mediaQuery(tab-land) {
+            margin-bottom: 2rem;
+        }
+        @include mediaQuery(phone) {
+        }
+
+        &_headline{
+            margin: 1rem;
+            text-align: center;
+            font-weight: var(--boldWeight);
+            font-size: 3rem;
+        }
+        &_song{
+        padding: 1rem;
+        margin: 0.5rem;
+        p{
+            font-weight: var(--boldWeight);
+            font-size: 1.5rem;
+            margin: 0.8rem 0 0;
+        }
+        img{
+            border-radius: 50%;
+            height: 4rem;
+            width: 4rem;
+        }
+        &_img-name{
+            display: flex;
+            p{
+            margin-left: 0.5rem;
+            }
+            }
+        }
+    }
+}

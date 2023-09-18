@@ -1,0 +1,19 @@
+.about-main{
+    text-align: center;
+    color: var(--white);
+    width: 80%;
+    margin: 4rem auto;
+    color: var(--primary_color);
+    h1{
+        font-size: 4rem;
+        font-weight: 600;
+        color: var(--black);
+    }
+    &_text{
+        font-size: 2.5rem;
+    }
+    &_logo{
+        margin: 4rem auto;
+        height: 8rem;
+    }
+}

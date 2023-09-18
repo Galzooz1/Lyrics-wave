@@ -1,0 +1,17 @@
+@import "../../styles/main.scss";
+
+.homePage{
+    &_songsDisplay {
+        @include flexCenter;
+        justify-content: space-evenly;
+        width: 100%;
+
+        @include mediaQuery(phone) {
+            flex-direction: column;
+        }
+    }
+        &_about{
+            display: flex;
+            justify-content: center;
+        }
+    }
